@@ -31,3 +31,23 @@ Test-Path "\\GT-DC01\HR"
 Test-Path "\\GT-DC01\Finance"
 Test-Path "\\GT-DC01\Sales"
 Test-Path "\\GT-DC01\IT"
+
+## Client Domain Join and Share Access Test
+
+A Windows 10 client was joined to the `greentech.local` domain.
+
+Test user:
+
+- Username: `greentech\alice.hansen`
+- Computer name: `GT-CLIENT01`
+
+Validation commands used:
+
+```powershell
+whoami
+hostname
+nltest /dsgetdc:greentech.local
+Test-Path "\\GT-DC01\Finance"
+Test-Path "\\GT-DC01\HR"
+Test-Path "\\GT-DC01\Sales"
+Test-Path "\\GT-DC01\IT"
