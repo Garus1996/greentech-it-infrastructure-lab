@@ -22,3 +22,23 @@ sudo usermod -aG docker garus
 newgrp docker
 docker ps
 docker --version
+
+## Nginx Container Test
+
+An Nginx web server container was deployed on `GT-LINUX01` using Docker.
+
+Container details:
+
+- Container name: `greentech-nginx`
+- Docker image: `nginx`
+- Host port: `8080`
+- Container port: `80`
+
+Commands used:
+
+```bash
+docker run -d --name greentech-nginx -p 8080:80 nginx
+docker ps
+curl http://localhost:8080
+sudo ufw allow 8080/tcp
+sudo ufw status verbose
