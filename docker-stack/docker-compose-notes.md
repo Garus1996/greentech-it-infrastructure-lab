@@ -42,3 +42,31 @@ docker ps
 curl http://localhost:8080
 sudo ufw allow 8080/tcp
 sudo ufw status verbose
+
+
+## Custom GreenTech Internal Web Page
+
+The default Nginx page was replaced with a custom internal GreenTech web page.
+
+Web page details:
+
+- Page name: `GreenTech Internal IT Portal`
+- Host server: `GT-LINUX01`
+- Web server: Nginx
+- Container name: `greentech-nginx`
+- Host port: `8080`
+- Container port: `80`
+- Local content folder: `~/greentech-web`
+- Container web root: `/usr/share/nginx/html`
+
+Commands used:
+
+```bash
+mkdir -p ~/greentech-web
+cd ~/greentech-web
+nano index.html
+docker stop greentech-nginx
+docker rm greentech-nginx
+docker run -d --name greentech-nginx -p 8080:80 -v ~/greentech-web:/usr/share/nginx/html:ro nginx
+docker ps
+curl http://localhost:8080
