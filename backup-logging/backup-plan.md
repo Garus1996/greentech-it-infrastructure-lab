@@ -78,3 +78,44 @@ Result:
 - Docker container logs were available through `docker logs`.
 - Firewall status confirmed that SSH and port `8080/tcp` were allowed.
 - These checks provide a basic operational monitoring approach for the GreenTech lab environment.
+
+
+## Backup Restore Test
+
+A restore test was performed to validate that the GreenTech web page backup could be recovered successfully.
+
+Restore test objective:
+
+- Confirm that the `.tar.gz` backup archive can be extracted.
+- Confirm that the backed up `index.html` file exists after restore.
+- Compare the restored file with the original file.
+- Validate that the backup can be used as a recovery point.
+
+Commands used:
+
+```bash
+ls -lh ~/backups
+mkdir -p ~/restore-test
+LATEST_BACKUP=$(ls -t ~/backups/greentech-web-backup-*.tar.gz | head -1)
+echo $LATEST_BACKUP
+tar -xzf "$LATEST_BACKUP" -C ~/restore-test
+find ~/restore-test -type f
+diff ~/greentech-web/index.html ~/restore-test/home/garus/greentech-web/index.html
+if diff ~/greentech-web/index.html ~/restore-test/home/garus/greentech-web/index.html > /dev/null; then
+  echo "Restore validation successful: restored index.html matches the original file."
+else
+  echo "Restore validation failed: restored file differs from original."
+fi
+```
+
+Validation result:
+
+- The latest GreenTech web backup archive was identified.
+- The backup archive was extracted into a restore test directory.
+- The restored `index.html` file was located successfully.
+- The restored file was compared with the original file.
+- The restore validation completed successfully.
+
+Result:
+
+The backup process was validated by performing a restore test. This confirmed that the backup archive can be used to recover the GreenTech internal web page files.
