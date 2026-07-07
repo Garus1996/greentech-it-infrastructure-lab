@@ -16,7 +16,7 @@
 
 Windows Server 2022 Standard Evaluation with Desktop Experience was installed in VirtualBox.
 
-The server will later be configured with:
+The server was configured with:
 - Static IP address
 - Server name: GT-DC01
 - Active Directory Domain Services
