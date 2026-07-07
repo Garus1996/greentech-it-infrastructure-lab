@@ -329,8 +329,6 @@ Planned future improvements:
 - Password policy configuration
 - Centralized logging
 - Vulnerability scanning
-- Final project report
-- LinkedIn/CV project summary
 
 ---
 

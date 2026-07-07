@@ -6,7 +6,7 @@
 |---|---|
 | VM Name | GT-DC01 |
 | Operating System | Windows Server 2022 Standard Evaluation Desktop Experience |
-| Role | Planned Domain Controller |
+| Role | Domain Controller, DNS, File Server |
 | RAM | 4096 MB |
 | CPU | 2 vCPU |
 | Disk | 60 GB |

@@ -1,16 +1,20 @@
+# Docker and Nginx Notes
+
 ## Docker Installation on GT-LINUX01
 
 Docker was installed on the Ubuntu Server `GT-LINUX01`.
 
-Server details:
+## Server Details
 
-- Hostname: `GT-LINUX01`
-- Operating system: Ubuntu Server 24.04 LTS
-- Docker package: `docker.io`
-- Docker version: `29.1.3`
-- User added to Docker group: `garus`
+| Setting | Value |
+|---|---|
+| Hostname | GT-LINUX01 |
+| Operating System | Ubuntu Server 24.04 LTS |
+| Docker Package | docker.io |
+| Docker Version | 29.1.3 |
+| Docker User | garus |
 
-Commands used:
+## Docker Installation Commands
 
 ```bash
 sudo apt update
@@ -22,19 +26,22 @@ sudo usermod -aG docker garus
 newgrp docker
 docker ps
 docker --version
+```
 
 ## Nginx Container Test
 
 An Nginx web server container was deployed on `GT-LINUX01` using Docker.
 
-Container details:
+## Container Details
 
-- Container name: `greentech-nginx`
-- Docker image: `nginx`
-- Host port: `8080`
-- Container port: `80`
+| Setting | Value |
+|---|---|
+| Container Name | greentech-nginx |
+| Docker Image | nginx |
+| Host Port | 8080 |
+| Container Port | 80 |
 
-Commands used:
+## Nginx Test Commands
 
 ```bash
 docker run -d --name greentech-nginx -p 8080:80 nginx
@@ -42,24 +49,26 @@ docker ps
 curl http://localhost:8080
 sudo ufw allow 8080/tcp
 sudo ufw status verbose
-
+```
 
 ## Custom GreenTech Internal Web Page
 
 The default Nginx page was replaced with a custom internal GreenTech web page.
 
-Web page details:
+## Web Page Details
 
-- Page name: `GreenTech Internal IT Portal`
-- Host server: `GT-LINUX01`
-- Web server: Nginx
-- Container name: `greentech-nginx`
-- Host port: `8080`
-- Container port: `80`
-- Local content folder: `~/greentech-web`
-- Container web root: `/usr/share/nginx/html`
+| Setting | Value |
+|---|---|
+| Page Name | GreenTech Internal IT Portal |
+| Host Server | GT-LINUX01 |
+| Web Server | Nginx |
+| Container Name | greentech-nginx |
+| Host Port | 8080 |
+| Container Port | 80 |
+| Local Content Folder | ~/greentech-web |
+| Container Web Root | /usr/share/nginx/html |
 
-Commands used:
+## Custom Web Page Commands
 
 ```bash
 mkdir -p ~/greentech-web
@@ -70,6 +79,7 @@ docker rm greentech-nginx
 docker run -d --name greentech-nginx -p 8080:80 -v ~/greentech-web:/usr/share/nginx/html:ro nginx
 docker ps
 curl http://localhost:8080
+```
 
 ## Docker Architecture Overview
 
@@ -93,19 +103,21 @@ Traffic flow:
 
 ```text
 User / Admin
-   ↓
+   |
+   v
 GT-LINUX01:8080
-   ↓
+   |
+   v
 Docker port mapping
-   ↓
+   |
+   v
 greentech-nginx container:80
-   ↓
+   |
+   v
 Custom GreenTech HTML page
 ```
 
 ## Container Management Commands
-
-The following commands can be used to manage the Nginx container.
 
 Check running containers:
 
@@ -175,9 +187,8 @@ curl http://localhost:8080
 sudo ufw status verbose
 ```
 
-Result:
+## Result
 
-- Docker is installed and working.
-- The Nginx container is running successfully.
-- The custom internal web page is served from the Docker container.
-- Firewall rules allow SSH and HTTP access on port `8080`.
+Docker was installed and validated successfully.
+
+The Nginx container is running, the custom internal web page is served from the Docker container, and firewall rules allow SSH and HTTP access on port `8080`.

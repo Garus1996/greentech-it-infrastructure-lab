@@ -31,6 +31,7 @@ Test-Path "\\GT-DC01\HR"
 Test-Path "\\GT-DC01\Finance"
 Test-Path "\\GT-DC01\Sales"
 Test-Path "\\GT-DC01\IT"
+```
 
 ## Client Domain Join and Share Access Test
 
@@ -51,3 +52,10 @@ Test-Path "\\GT-DC01\Finance"
 Test-Path "\\GT-DC01\HR"
 Test-Path "\\GT-DC01\Sales"
 Test-Path "\\GT-DC01\IT"
+```
+
+Result:
+
+- The Windows client was successfully joined to the domain.
+- The domain controller was detected successfully.
+- Shared folder access was tested from the domain-joined client.

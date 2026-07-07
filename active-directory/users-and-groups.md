@@ -1,4 +1,4 @@
-# Active Directory Users and Groups
+﻿# Active Directory Users and Groups
 
 ## Domain
 
@@ -19,6 +19,7 @@ The following OU structure was created for GreenTech Solutions AS:
 | Groups | Stores security groups |
 | Computers | Stores domain-joined computers |
 | Service Accounts | Stores service accounts |
+| Domain Controllers | Stores domain controller objects |
 
 ## Security Groups
 
@@ -46,3 +47,20 @@ New-ADOrganizationalUnit -Name "Users" -Path "OU=GreenTech,DC=greentech,DC=local
 New-ADOrganizationalUnit -Name "Groups" -Path "OU=GreenTech,DC=greentech,DC=local"
 New-ADOrganizationalUnit -Name "Computers" -Path "OU=GreenTech,DC=greentech,DC=local"
 New-ADOrganizationalUnit -Name "Service Accounts" -Path "OU=GreenTech,DC=greentech,DC=local"
+```
+
+## Validation
+
+The Active Directory structure was validated by confirming that the organizational units, users, and security groups were visible in Active Directory Users and Computers.
+
+Screenshots were captured and stored in:
+
+```text
+screenshots/active-directory/
+```
+
+## Result
+
+Active Directory users, groups, and organizational units were created successfully.
+
+The structure supports department-based access control for the GreenTech lab environment.
