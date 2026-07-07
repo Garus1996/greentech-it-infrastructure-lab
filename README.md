@@ -232,7 +232,7 @@ Detailed documentation is available in the following folders:
 - [Backup and logging](backup-logging/backup-plan.md)
 - [Security hardening checklist](security-hardening/hardening-checklist.md)
 - [Incident response plan](security-hardening/incident-response-plan.md)
-
+- [CV and LinkedIn summary](final-report/cv-linkedin-summary.md)
 ---
 
 ## Screenshots
