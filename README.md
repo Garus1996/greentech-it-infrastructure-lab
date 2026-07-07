@@ -239,18 +239,43 @@ Detailed documentation is available in the following folders:
 
 Validation screenshots are stored in the `screenshots/` folder.
 
-Examples include:
+### Active Directory
 
-- Active Directory OU structure
-- Domain users and groups
-- Windows client domain validation
-- Shared folder access testing
-- Linux network validation
-- UFW firewall status
-- Docker installation validation
-- Nginx container validation
-- Custom GreenTech web page validation
-- Backup and restore validation
+The following screenshots show the Active Directory structure, users, and security groups.
+
+![Active Directory OU Structure](screenshots/active-directory/ad-ou-structure.png)
+
+![Active Directory Users](screenshots/active-directory/ad-users.png)
+
+![Active Directory Groups](screenshots/active-directory/ad-groups.png)
+
+### Windows Client and Domain Validation
+
+The following screenshots show the Windows client joined to the domain and validating access to domain resources.
+
+![Client Domain Validation](screenshots/client-tests/client-domain-validation.png)
+
+![Client Shared Folders](screenshots/client-tests/client-shared-folders.png)
+
+![Client Share Access Test](screenshots/client-tests/client-domain-join-share-test.png)
+
+### Linux, Docker, Firewall and Backup
+
+The following screenshots show Linux networking, firewall hardening, Docker validation, Nginx, custom web page, backup, and restore testing.
+
+![Linux Network Validation](screenshots/networking/linux-network-validation.png)
+
+![Linux UFW Firewall Status](screenshots/networking/linux-ufw-firewall-status.png)
+
+![Docker Installation Validation](screenshots/networking/linux-docker-install-validation.png)
+
+![Nginx Container Validation](screenshots/networking/linux-nginx-container-validation.png)
+
+![Custom GreenTech Web Page Validation](screenshots/networking/linux-custom-nginx-webpage-validation.png)
+
+![Linux Backup Script Validation](screenshots/networking/linux-backup-script-validation.png)
+
+![Linux Backup Restore Validation](screenshots/networking/linux-backup-restore-validation.png)
 
 ---
 
