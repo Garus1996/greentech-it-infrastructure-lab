@@ -233,6 +233,7 @@ Detailed documentation is available in the following folders:
 - [Security hardening checklist](security-hardening/hardening-checklist.md)
 - [Incident response plan](security-hardening/incident-response-plan.md)
 - [CV and LinkedIn summary](final-report/cv-linkedin-summary.md)
+- [Final submission summary](final-report/final-submission-summary.md)
 ---
 
 ## Screenshots
