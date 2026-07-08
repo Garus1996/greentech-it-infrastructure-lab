@@ -225,6 +225,7 @@ Detailed documentation is available in the following folders:
 - [Active Directory setup](active-directory/ad-setup.md)
 - [Users and groups](active-directory/users-and-groups.md)
 - [Group Policy hardening](active-directory/group-policy-hardening.md)
+- [Account lockout testing](active-directory/account-lockout-testing.md)
 - [Shared folder permissions](active-directory/shared-folder-permissions.md)
 - [Architecture overview](architecture/architecture-overview.md)
 - [Ubuntu Server setup](linux-server/ubuntu-server-setup.md)
