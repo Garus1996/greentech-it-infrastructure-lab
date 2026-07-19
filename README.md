@@ -227,6 +227,7 @@ Detailed documentation is available in the following folders:
 - [Group Policy hardening](active-directory/group-policy-hardening.md)
 - [Account lockout testing](active-directory/account-lockout-testing.md)
 - [GPO mapped drives](active-directory/gpo-mapped-drives.md)
+- [Windows security GPO](active-directory/windows-security-gpo.md)
 - [Shared folder permissions](active-directory/shared-folder-permissions.md)
 - [Architecture overview](architecture/architecture-overview.md)
 - [Ubuntu Server setup](linux-server/ubuntu-server-setup.md)
