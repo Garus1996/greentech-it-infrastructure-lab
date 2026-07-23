@@ -14,7 +14,7 @@ The goal of the project is to demonstrate practical junior IT, infrastructure, s
 
 | System | Hostname | Role | IP Address |
 |---|---|---|---|
-| Windows Server | `GT-DC01` | Domain Controller, DNS, File Server | `192.168.56.10` |
+| Windows Server | `GT-DC01` | Domain Controller, DNS, DHCP, File Server | `192.168.56.10` |
 | Windows Client | `GT-CLIENT01` | Domain-joined workstation | `192.168.56.20` |
 | Ubuntu Server | `GT-LINUX01` | Linux server, Docker host, backup host | `192.168.56.30` |
 | Docker Container | `greentech-nginx` | Internal web service | Port `8080` |
@@ -24,16 +24,29 @@ The goal of the project is to demonstrate practical junior IT, infrastructure, s
 
 ## Technologies Used
 
+### Windows Infrastructure
+
 - Windows Server 2022
-- Active Directory Domain Services
+- Active Directory Domain Services (AD DS)
 - DNS
-- Windows 10 Client
+- DHCP
+- Group Policy
+- Windows File Services
+- File Server Resource Manager (FSRM)
+- Windows Server Backup
+
+### Linux Services
+
 - Ubuntu Server 24.04 LTS
-- PowerShell
-- Bash
 - Docker
 - Nginx
 - UFW Firewall
+
+### Administration & Automation
+
+- Windows 10 Client
+- PowerShell
+- Bash
 - Git and GitHub
 - VirtualBox
 
@@ -67,7 +80,16 @@ Department file shares were created on `GT-DC01`:
 
 Access was controlled using Active Directory security groups and NTFS permissions.
 
-### 3. Ubuntu Server
+### 3. DHCP Server
+
+- Installed the DHCP Server role
+- Created an IPv4 scope for the internal lab network
+- Configured address exclusions
+- Configured DNS and domain options
+- Authorized the DHCP server in Active Directory
+- Validated DHCP functionality using PowerShell
+
+### 4. Ubuntu Server
 
 - Installed Ubuntu Server 24.04 LTS as `GT-LINUX01`
 - Configured static internal IP address `192.168.56.30`
@@ -75,7 +97,7 @@ Access was controlled using Active Directory security groups and NTFS permission
 - Added NAT networking for updates and Docker image downloads
 - Applied basic Linux hardening
 
-### 4. Linux Hardening
+### 5. Linux Hardening
 
 Basic Linux security hardening included:
 
@@ -86,7 +108,7 @@ Basic Linux security hardening included:
 - Allowed OpenSSH
 - Allowed port `8080/tcp` for the internal web service
 
-### 5. Docker and Nginx
+### 6. Docker and Nginx
 
 - Installed Docker on `GT-LINUX01`
 - Tested Docker using the `hello-world` container
@@ -95,14 +117,32 @@ Basic Linux security hardening included:
   - `GreenTech Internal IT Portal`
 - Exposed the web service on port `8080`
 
-### 6. Backup and Restore
+### 7. File Server Resource Manager (FSRM)
+
+- Installed File Server Resource Manager (FSRM)
+- Configured storage quotas
+- Created file screening rules
+- Blocked prohibited file types
+- Validated quota and file screening functionality
+
+### 8. Windows Server Backup
+
+- Installed Windows Server Backup
+- Added a dedicated backup disk
+- Configured scheduled backups
+- Performed a successful backup
+- Verified backup completion
+
+### 9. Backup and Restore
 
 - Created a Bash backup script for the GreenTech web files
 - Stored backups as timestamped `.tar.gz` archives
 - Tested restoring from backup
 - Verified restored files using `diff`
 
-### 7. Logging and Monitoring
+
+
+### 10. Logging and Monitoring
 
 Basic monitoring checks included:
 
@@ -143,33 +183,27 @@ Basic monitoring checks included:
 greentech-it-infrastructure-lab/
 │
 ├── active-directory/
-│   ├── ad-setup.md
-│   ├── users-and-groups.md
-│   └── shared-folder-permissions.md
-│
 ├── architecture/
-│   └── architecture-overview.md
-│
+├── backup/
 ├── backup-logging/
-│   └── backup-plan.md
-│
-├── docker-stack/
-│   └── docker-compose-notes.md
-│
-├── linux-server/
-│   ├── ubuntu-server-setup.md
-│   └── linux-hardening.md
-│
-├── security-hardening/
-│   ├── hardening-checklist.md
-│   └── incident-response-plan.md
-│
+├── docker/
+├── final-report/
+├── linux/
+├── networking/
+├── security/
+├── storage/
 ├── screenshots/
 │   ├── active-directory/
+│   ├── backup/
 │   ├── client-tests/
-│   └── networking/
+│   ├── dhcp/
+│   ├── dns/
+│   ├── linux/
+│   ├── networking/
+│   └── storage/
 │
 └── README.md
+```
 ```
 
 ---
@@ -232,13 +266,14 @@ Detailed documentation is available in the following folders:
 - [Windows Server Backup](backup/windows-server-backup.md)
 - [Shared folder permissions](active-directory/shared-folder-permissions.md)
 - [DNS Management](networking/dns-management.md)
+- [DHCP Server](networking/dhcp-server.md)
 - [Architecture overview](architecture/architecture-overview.md)
-- [Ubuntu Server setup](linux-server/ubuntu-server-setup.md)
-- [Linux hardening](linux-server/linux-hardening.md)
-- [Docker notes](docker-stack/docker-compose-notes.md)
+- [Ubuntu Server setup](linux/ubuntu-server-setup.md)
+- [Linux hardening](linux/linux-hardening.md)
+- [Docker notes](docker/docker-compose-notes.md)
 - [Backup and logging](backup-logging/backup-plan.md)
-- [Security hardening checklist](security-hardening/hardening-checklist.md)
-- [Incident response plan](security-hardening/incident-response-plan.md)
+- [Security hardening checklist](security/hardening-checklist.md)
+- [Incident response plan](security/incident-response-plan.md)
 - [CV and LinkedIn summary](final-report/cv-linkedin-summary.md)
 - [Final submission summary](final-report/final-submission-summary.md)
 ---
@@ -251,21 +286,49 @@ Validation screenshots are stored in the `screenshots/` folder.
 
 The following screenshots show the Active Directory structure, users, and security groups.
 
-![Active Directory OU Structure](screenshots/active-directory/ad-ou-structure.png)
+[Active Directory OU Structure](screenshots/active-directory/ad-ou-structure.png)
 
-![Active Directory Users](screenshots/active-directory/ad-users.png)
+[Active Directory Users](screenshots/active-directory/ad-users.png)
 
-![Active Directory Groups](screenshots/active-directory/ad-groups.png)
+[Active Directory Groups](screenshots/active-directory/ad-groups.png)
 
 ### Windows Client and Domain Validation
 
-The following screenshots show the Windows client joined to the domain and validating access to domain resources.
+### DNS
 
-![Client Domain Validation](screenshots/client-tests/client-domain-validation.png)
+[DNS Manager](screenshots/dns/dns-manager-overview.png)
 
-![Client Shared Folders](screenshots/client-tests/client-shared-folders.png)
+[DNS Zone Records](screenshots/dns/dns-zone-records.png)
 
-![Client Share Access Test](screenshots/client-tests/client-domain-join-share-test.png)
+[Client Domain Validation](screenshots/client-tests/client-domain-validation.png)
+
+[Client Shared Folders](screenshots/client-tests/client-shared-folders.png)
+
+[Client Share Access Test](screenshots/client-tests/client-domain-join-share-test.png)
+
+### DHCP
+
+![DHCP Manager](screenshots/dhcp/dhcp-manager.png)
+
+![DHCP Scope](screenshots/dhcp/dhcp-scope-created.png)
+
+![DHCP Validation](screenshots/dhcp/dhcp-scope-validation.png)
+
+### File Server Resource Manager
+
+[FSRM Installed](screenshots/storage/fsrm-installed.png)
+
+[Quota Created](screenshots/storage/fsrm-quota-created.png)
+
+[File Screening](screenshots/storage/fsrm-file-screen-created.png)
+
+### Windows Server Backup
+
+[Windows Server Backup](screenshots/backup/windows-server-backup-installed.png)
+
+[Backup Running](screenshots/backup/backup-running.png)
+
+[Backup Completed](screenshots/backup/backup-completed.png)
 
 ### Linux, Docker, Firewall and Backup
 
@@ -306,6 +369,12 @@ This project demonstrates practical experience with:
 - Basic logging and monitoring
 - Incident response planning
 - Git and GitHub documentation
+- DHCP administration
+- DNS administration
+- Group Policy management
+- File Server Resource Manager (FSRM)
+- Windows Server Backup
+- NTFS permission management
 
 ---
 
@@ -338,6 +407,13 @@ Completed:
 - A Record creation
 - CNAME alias configuration
 - DNS client validation
+- DHCP Scope Configuration
+- DHCP Authorization
+- DHCP Client Validation
+- File Server Resource Manager (FSRM)
+- Storage Quotas
+- File Screening
+- Windows Server Backup
 
 Planned future improvements:
 
