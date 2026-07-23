@@ -231,6 +231,7 @@ Detailed documentation is available in the following folders:
 - [File Server Resource Manager](storage/fsrm-file-screening.md)
 - [Windows Server Backup](backup/windows-server-backup.md)
 - [Shared folder permissions](active-directory/shared-folder-permissions.md)
+- [DNS Management](networking/dns-management.md)
 - [Architecture overview](architecture/architecture-overview.md)
 - [Ubuntu Server setup](linux-server/ubuntu-server-setup.md)
 - [Linux hardening](linux-server/linux-hardening.md)
@@ -333,6 +334,10 @@ Completed:
 - Windows Security Baseline
 - File Server Resource Manager (FSRM)
 - Windows Server Backup
+- DNS management
+- A Record creation
+- CNAME alias configuration
+- DNS client validation
 
 Planned future improvements:
 
