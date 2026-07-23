@@ -228,6 +228,8 @@ Detailed documentation is available in the following folders:
 - [Account lockout testing](active-directory/account-lockout-testing.md)
 - [GPO mapped drives](active-directory/gpo-mapped-drives.md)
 - [Windows security GPO](active-directory/windows-security-gpo.md)
+- [File Server Resource Manager](storage/fsrm-file-screening.md)
+- [Windows Server Backup](backup/windows-server-backup.md)
 - [Shared folder permissions](active-directory/shared-folder-permissions.md)
 - [Architecture overview](architecture/architecture-overview.md)
 - [Ubuntu Server setup](linux-server/ubuntu-server-setup.md)
@@ -324,6 +326,13 @@ Completed:
 - Security hardening checklist
 - Incident response plan
 - Architecture overview
+- Password policy configuration
+- Group Policy hardening
+- Account lockout testing
+- GPO mapped drives
+- Windows Security Baseline
+- File Server Resource Manager (FSRM)
+- Windows Server Backup
 
 Planned future improvements:
 
