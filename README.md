@@ -35,6 +35,7 @@ The goal of the project is to demonstrate practical junior IT, infrastructure, s
 - File Server Resource Manager (FSRM)
 - Windows Server Backup
 - Internet Information Services (IIS)
+- Windows Security Auditing
 
 ### Linux Services
 
@@ -286,6 +287,7 @@ Detailed documentation is available in the following folders:
 - [CV and LinkedIn summary](final-report/cv-linkedin-summary.md)
 - [Final submission summary](final-report/final-submission-summary.md)
 - [IIS Internal Web Server](windows-services/iis-internal-web-server.md)
+- [Windows Auditing and Event Logs](security/windows-auditing-event-logs.md)
 ---
 
 ## Screenshots
@@ -398,7 +400,10 @@ This project demonstrates practical experience with:
 - IIS installation and configuration
 - Internal web server administration
 - Internal DNS web service mapping
-
+- Windows Event Logging
+- Security Auditing
+- Event Viewer
+- PowerShell Log Analysis
 ---
 
 ## Current Project Status
@@ -440,6 +445,9 @@ Completed:
 - IIS Internal Web Server
 - Internal DNS website record
 - Client web access validation
+- Windows Security Auditing
+- Event Log Monitoring
+- Failed Logon Validation
 
 Planned future improvements:
 
