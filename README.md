@@ -34,6 +34,7 @@ The goal of the project is to demonstrate practical junior IT, infrastructure, s
 - Windows File Services
 - File Server Resource Manager (FSRM)
 - Windows Server Backup
+- Internet Information Services (IIS)
 
 ### Linux Services
 
@@ -132,6 +133,14 @@ Basic Linux security hardening included:
 - Configured scheduled backups
 - Performed a successful backup
 - Verified backup completion
+
+### IIS Internal Web Server
+
+- Installed Internet Information Services (IIS)
+- Created a custom internal web page
+- Configured the internal DNS name `intranet.greentech.local`
+- Mapped the DNS record to `192.168.56.10`
+- Validated website access from a domain-joined Windows client
 
 ### 9. Backup and Restore
 
@@ -276,6 +285,7 @@ Detailed documentation is available in the following folders:
 - [Incident response plan](security/incident-response-plan.md)
 - [CV and LinkedIn summary](final-report/cv-linkedin-summary.md)
 - [Final submission summary](final-report/final-submission-summary.md)
+- [IIS Internal Web Server](windows-services/iis-internal-web-server.md)
 ---
 
 ## Screenshots
@@ -321,6 +331,16 @@ The following screenshots show the Active Directory structure, users, and securi
 [Quota Created](screenshots/storage/fsrm-quota-created.png)
 
 [File Screening](screenshots/storage/fsrm-file-screen-created.png)
+
+### IIS Internal Web Server
+
+![IIS Local Validation](screenshots/iis/iis-local-validation.png)
+
+![IIS DNS Record Validation](screenshots/iis/iis-dns-record-validation.png)
+
+![IIS Client DNS Validation](screenshots/iis/iis-client-dns-validation.png)
+
+![IIS Client Webpage Validation](screenshots/iis/iis-client-webpage-validation.png)
 
 ### Windows Server Backup
 
@@ -375,6 +395,9 @@ This project demonstrates practical experience with:
 - File Server Resource Manager (FSRM)
 - Windows Server Backup
 - NTFS permission management
+- IIS installation and configuration
+- Internal web server administration
+- Internal DNS web service mapping
 
 ---
 
@@ -414,6 +437,9 @@ Completed:
 - Storage Quotas
 - File Screening
 - Windows Server Backup
+- IIS Internal Web Server
+- Internal DNS website record
+- Client web access validation
 
 Planned future improvements:
 
