@@ -36,6 +36,8 @@ The goal of the project is to demonstrate practical junior IT, infrastructure, s
 - Windows Server Backup
 - Internet Information Services (IIS)
 - Windows Security Auditing
+- Windows Server Update Services
+- Windows Internal Database
 
 ### Linux Services
 
@@ -288,6 +290,7 @@ Detailed documentation is available in the following folders:
 - [Final submission summary](final-report/final-submission-summary.md)
 - [IIS Internal Web Server](windows-services/iis-internal-web-server.md)
 - [Windows Auditing and Event Logs](security/windows-auditing-event-logs.md)
+- [Windows Server Update Services](windows-services/wsus-server.md)
 ---
 
 ## Screenshots
@@ -404,6 +407,11 @@ This project demonstrates practical experience with:
 - Security Auditing
 - Event Viewer
 - PowerShell Log Analysis
+- Centralized Windows update management
+- WSUS administration
+- Windows Internal Database troubleshooting
+- IIS service validation
+- PowerShell network testing
 ---
 
 ## Current Project Status
@@ -448,6 +456,10 @@ Completed:
 - Windows Security Auditing
 - Event Log Monitoring
 - Failed Logon Validation
+- WSUS role installation
+- WSUS database initialization
+- WSUS IIS configuration
+- WSUS service and port validation
 
 Planned future improvements:
 
