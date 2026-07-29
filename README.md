@@ -40,6 +40,10 @@ The goal of the project is to demonstrate practical junior IT, infrastructure, s
 - Windows Internal Database
 - Active Directory Certificate Services (AD CS)
 - Public Key Infrastructure (PKI)
+- Group Policy Management
+- Group Policy Objects (GPO)
+- Password Policies
+- Account Lockout Policies
 
 ### Linux Services
 
@@ -294,6 +298,7 @@ Detailed documentation is available in the following folders:
 - [Windows Auditing and Event Logs](security/windows-auditing-event-logs.md)
 - [Windows Server Update Services](windows-services/wsus-server.md)
 - [Active Directory Certificate Services](windows-services/ad-certificate-services.md)
+- [Group Policy Management](windows-services/group-policy-management.md)
 ---
 
 ## Screenshots
@@ -415,6 +420,12 @@ This project demonstrates practical experience with:
 - Windows Internal Database troubleshooting
 - IIS service validation
 - PowerShell network testing
+- Group Policy Management
+- Security Policy Administration
+- Password Policy Configuration
+- Account Lockout Configuration
+- GPO Deployment
+- Group Policy Troubleshooting
 ---
 
 ## Current Project Status
