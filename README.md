@@ -315,6 +315,7 @@ Detailed documentation is available in the following folders:
 - [Windows Event Logs and Monitoring](windows-services/windows-event-monitoring.md)
 - [Windows Server Hardening](windows-services/windows-server-hardening.md)
 - [Windows Defender and Incident Response](windows-services/incident-response.md)
+- [Server Health Dashboard](windows-services/server-health-dashboard.md)
 ---
 
 ## Screenshots
@@ -457,6 +458,10 @@ This project demonstrates practical experience with:
 - Authentication Investigation
 - Security Event Analysis
 - Evidence Collection
+- Server Health Monitoring
+- HTML Dashboard Generation
+- Operational Reporting
+- Infrastructure Monitoring
 ---
 
 ## Current Project Status
