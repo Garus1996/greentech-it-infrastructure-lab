@@ -2,11 +2,49 @@
 
 ## Project Overview
 
-This project is a hands-on IT infrastructure and cybersecurity lab designed to simulate a small business environment.
+A hands-on infrastructure and cybersecurity portfolio project simulating the design, deployment, administration, security, monitoring, and documentation of a small business IT environment.
 
-The lab includes Windows Server, Active Directory, a domain-joined Windows client, Ubuntu Server, Docker, file shares, firewall hardening, backup scripting, restore testing, and basic monitoring.
+The lab combines Windows Server, Active Directory, Windows client administration, Ubuntu Server, Docker, networking, backup, monitoring, incident response, and PowerShell automation.
 
-The goal of the project is to demonstrate practical junior IT, infrastructure, system administration, and cybersecurity skills in a realistic lab environment.
+## Key Features
+
+- Windows Server 2022 domain environment
+- Active Directory users, groups, organizational units, and policies
+- DNS and DHCP infrastructure
+- Domain-joined Windows client
+- Department file shares with group-based access control
+- Windows Server Backup and restore validation
+- IIS internal web server
+- WSUS update management
+- Active Directory Certificate Services and PKI
+- Windows security auditing and event monitoring
+- Windows Server hardening
+- Incident response investigation
+- Ubuntu Server with SSH and UFW
+- Docker and Nginx container deployment
+- Bash backup automation
+- PowerShell administration and HTML health reporting
+
+## Architecture
+
+The environment was deployed in VirtualBox using an isolated internal network.
+
+```text
+                         Physical Windows Host
+                                  |
+                             VirtualBox
+                                  |
+                       greentech-lab Network
+                                  |
+          ------------------------------------------------
+          |                      |                       |
+      GT-DC01               GT-CLIENT01              GT-LINUX01
+ Windows Server 2022         Windows 10          Ubuntu Server 24.04
+ 192.168.56.10              192.168.56.20        192.168.56.30
+          |                      |                       |
+ AD DS / DNS / DHCP       Domain Client          Docker / Nginx
+ File Server / IIS        Share Testing          Backup / SSH / UFW
+ WSUS / AD CS
 
 ---
 
@@ -90,7 +128,43 @@ The goal of the project is to demonstrate practical junior IT, infrastructure, s
 - Joined `GT-CLIENT01` to the domain
 - Validated domain login from the Windows client
 
-### 2. File Shares and Permissions
+### 2. Automation and Monitoring
+
+PowerShell and Bash were used to automate administrative and operational tasks.
+
+Key automation activities included:
+
+- Retrieving system information
+- Listing Active Directory users
+- Reviewing Windows services
+- Exporting CSV system reports
+- Monitoring disk usage
+- Restarting services
+- Querying Windows Event Logs
+- Exporting Security logs
+- Generating an HTML Server Health Dashboard
+- Creating timestamped Linux backups
+- Testing backup restoration
+
+### 3. Security Implementation
+
+Security controls implemented and reviewed during the project included:
+
+- Password and account lockout policies
+- Group-based access control
+- NTFS and SMB permissions
+- Windows Firewall configuration
+- UFW firewall configuration
+- Windows Security Auditing
+- Successful and failed logon monitoring
+- Microsoft Defender status and configuration review
+- Server hardening checks
+- PKI and certificate services
+- Event log export for evidence preservation
+- Basic incident response documentation
+- Linux system hardening
+
+### 4. File Shares and Permissions
 
 Department file shares were created on `GT-DC01`:
 
@@ -101,7 +175,7 @@ Department file shares were created on `GT-DC01`:
 
 Access was controlled using Active Directory security groups and NTFS permissions.
 
-### 3. DHCP Server
+### 5. DHCP Server
 
 - Installed the DHCP Server role
 - Created an IPv4 scope for the internal lab network
@@ -110,7 +184,7 @@ Access was controlled using Active Directory security groups and NTFS permission
 - Authorized the DHCP server in Active Directory
 - Validated DHCP functionality using PowerShell
 
-### 4. Ubuntu Server
+### 6. Ubuntu Server
 
 - Installed Ubuntu Server 24.04 LTS as `GT-LINUX01`
 - Configured static internal IP address `192.168.56.30`
@@ -118,7 +192,7 @@ Access was controlled using Active Directory security groups and NTFS permission
 - Added NAT networking for updates and Docker image downloads
 - Applied basic Linux hardening
 
-### 5. Linux Hardening
+### 7. Linux Hardening
 
 Basic Linux security hardening included:
 
@@ -129,7 +203,7 @@ Basic Linux security hardening included:
 - Allowed OpenSSH
 - Allowed port `8080/tcp` for the internal web service
 
-### 6. Docker and Nginx
+### 8. Docker and Nginx
 
 - Installed Docker on `GT-LINUX01`
 - Tested Docker using the `hello-world` container
@@ -138,7 +212,7 @@ Basic Linux security hardening included:
   - `GreenTech Internal IT Portal`
 - Exposed the web service on port `8080`
 
-### 7. File Server Resource Manager (FSRM)
+### 9. File Server Resource Manager (FSRM)
 
 - Installed File Server Resource Manager (FSRM)
 - Configured storage quotas
@@ -146,7 +220,7 @@ Basic Linux security hardening included:
 - Blocked prohibited file types
 - Validated quota and file screening functionality
 
-### 8. Windows Server Backup
+### 10. Windows Server Backup
 
 - Installed Windows Server Backup
 - Added a dedicated backup disk
@@ -154,7 +228,7 @@ Basic Linux security hardening included:
 - Performed a successful backup
 - Verified backup completion
 
-### IIS Internal Web Server
+### 11. IIS Internal Web Server
 
 - Installed Internet Information Services (IIS)
 - Created a custom internal web page
@@ -162,7 +236,7 @@ Basic Linux security hardening included:
 - Mapped the DNS record to `192.168.56.10`
 - Validated website access from a domain-joined Windows client
 
-### 9. Backup and Restore
+### 12. Backup and Restore
 
 - Created a Bash backup script for the GreenTech web files
 - Stored backups as timestamped `.tar.gz` archives
@@ -171,7 +245,7 @@ Basic Linux security hardening included:
 
 
 
-### 10. Logging and Monitoring
+### 13. Logging and Monitoring
 
 Basic monitoring checks included:
 
@@ -184,25 +258,7 @@ Basic monitoring checks included:
 
 ---
 
-## Architecture Overview
 
-```text
-                           Physical Windows Host
-                                      |
-                              VirtualBox Lab
-                                      |
-        --------------------------------------------------------
-        |                                                      |
- Internal Network: greentech-lab                         NAT Adapter
-        |                                                      |
-  ------------------      --------------------      --------------------
-  |    GT-DC01      |      |   GT-CLIENT01    |      |   GT-LINUX01     |
-  | Windows Server  |      | Windows 10       |      | Ubuntu Server    |
-  | 192.168.56.10   |      | 192.168.56.20    |      | 192.168.56.30    |
-  | AD DS / DNS     |<---->| Domain Client    |      | Docker Host      |
-  | File Shares     |      | Share Testing    |<---->| Nginx / Backup   |
-  ------------------      --------------------      --------------------
-```
 
 ---
 
@@ -270,13 +326,12 @@ curl http://localhost:8080
 docker logs greentech-nginx
 ```
 
-### Backup and Restore
+### Backup
 
 ```bash
 ~/scripts/backup-greentech-web.sh
 ls -lh ~/backups
 tar -tzf ~/backups/*.tar.gz | head
-diff ~/greentech-web/index.html ~/restore-test/home/garus/greentech-web/index.html
 ```
 
 ---
@@ -316,87 +371,17 @@ Detailed documentation is available in the following folders:
 - [Windows Server Hardening](windows-services/windows-server-hardening.md)
 - [Windows Defender and Incident Response](windows-services/incident-response.md)
 - [Server Health Dashboard](windows-services/server-health-dashboard.md)
+- [Final Project Report](final-report/final-project-report.md)
+- [Lessons Learned](final-report/lessons-learned.md)
 ---
 
 ## Screenshots
 
-Validation screenshots are stored in the `screenshots/` folder.
+Validation screenshots for each lab module are available in the `screenshots/` directory.
 
-### Active Directory
+Each documentation page contains the relevant screenshots demonstrating the completed configuration, validation, and testing steps.
 
-The following screenshots show the Active Directory structure, users, and security groups.
 
-[Active Directory OU Structure](screenshots/active-directory/ad-ou-structure.png)
-
-[Active Directory Users](screenshots/active-directory/ad-users.png)
-
-[Active Directory Groups](screenshots/active-directory/ad-groups.png)
-
-### Windows Client and Domain Validation
-
-### DNS
-
-[DNS Manager](screenshots/dns/dns-manager-overview.png)
-
-[DNS Zone Records](screenshots/dns/dns-zone-records.png)
-
-[Client Domain Validation](screenshots/client-tests/client-domain-validation.png)
-
-[Client Shared Folders](screenshots/client-tests/client-shared-folders.png)
-
-[Client Share Access Test](screenshots/client-tests/client-domain-join-share-test.png)
-
-### DHCP
-
-![DHCP Manager](screenshots/dhcp/dhcp-manager.png)
-
-![DHCP Scope](screenshots/dhcp/dhcp-scope-created.png)
-
-![DHCP Validation](screenshots/dhcp/dhcp-scope-validation.png)
-
-### File Server Resource Manager
-
-[FSRM Installed](screenshots/storage/fsrm-installed.png)
-
-[Quota Created](screenshots/storage/fsrm-quota-created.png)
-
-[File Screening](screenshots/storage/fsrm-file-screen-created.png)
-
-### IIS Internal Web Server
-
-![IIS Local Validation](screenshots/iis/iis-local-validation.png)
-
-![IIS DNS Record Validation](screenshots/iis/iis-dns-record-validation.png)
-
-![IIS Client DNS Validation](screenshots/iis/iis-client-dns-validation.png)
-
-![IIS Client Webpage Validation](screenshots/iis/iis-client-webpage-validation.png)
-
-### Windows Server Backup
-
-[Windows Server Backup](screenshots/backup/windows-server-backup-installed.png)
-
-[Backup Running](screenshots/backup/backup-running.png)
-
-[Backup Completed](screenshots/backup/backup-completed.png)
-
-### Linux, Docker, Firewall and Backup
-
-The following screenshots show Linux networking, firewall hardening, Docker validation, Nginx, custom web page, backup, and restore testing.
-
-![Linux Network Validation](screenshots/networking/linux-network-validation.png)
-
-![Linux UFW Firewall Status](screenshots/networking/linux-ufw-firewall-status.png)
-
-![Docker Installation Validation](screenshots/networking/linux-docker-install-validation.png)
-
-![Nginx Container Validation](screenshots/networking/linux-nginx-container-validation.png)
-
-![Custom GreenTech Web Page Validation](screenshots/networking/linux-custom-nginx-webpage-validation.png)
-
-![Linux Backup Script Validation](screenshots/networking/linux-backup-script-validation.png)
-
-![Linux Backup Restore Validation](screenshots/networking/linux-backup-restore-validation.png)
 
 ---
 
@@ -437,14 +422,12 @@ This project demonstrates practical experience with:
 - Windows Internal Database troubleshooting
 - IIS service validation
 - PowerShell network testing
-- Group Policy Management
 - Security Policy Administration
 - Password Policy Configuration
 - Account Lockout Configuration
 - GPO Deployment
 - Group Policy Troubleshooting
 - Windows Event Monitoring
-- Event Viewer
 - Event Log Analysis
 - PowerShell Event Logs
 - Windows Monitoring
@@ -454,7 +437,6 @@ This project demonstrates practical experience with:
 - Windows Update Verification
 - Windows Service Hardening
 - Windows Incident Response
-- Windows Defender
 - Authentication Investigation
 - Security Event Analysis
 - Evidence Collection
@@ -496,10 +478,8 @@ Completed:
 - DHCP Scope Configuration
 - DHCP Authorization
 - DHCP Client Validation
-- File Server Resource Manager (FSRM)
 - Storage Quotas
 - File Screening
-- Windows Server Backup
 - IIS Internal Web Server
 - Internal DNS website record
 - Client web access validation
@@ -512,14 +492,22 @@ Completed:
 - WSUS service and port validation
 - Active Directory Certificate Services
 
-Planned future improvements:
+## Future Improvements
 
-- Docker Compose
-- Automated backups using cron
-- Group Policy Objects
-- Password policy configuration
-- Centralized logging
+- Centralized logging with Wazuh, Splunk, or Microsoft Sentinel
 - Vulnerability scanning
+- Docker Compose
+- Scheduled backup automation
+- Additional Windows member server
+- Network segmentation
+- Azure integration
+- Microsoft 365 and Intune
+
+## Project Outcomes
+
+During this project, I designed, deployed, secured, monitored, automated, and documented a complete small business IT environment.
+
+The project demonstrates practical experience across Windows Server, Active Directory, Linux, Docker, networking, security, backup, monitoring, incident response, and PowerShell automation.
 
 ---
 
