@@ -312,6 +312,7 @@ Detailed documentation is available in the following folders:
 - [Group Policy Management](windows-services/group-policy-management.md)
 - [Windows File Server and SMB Shares](windows-services/file-server.md)
 - [PowerShell Administration and Automation](windows-services/powershell-administration.md)
+- [Windows Event Logs and Monitoring](windows-services/windows-event-monitoring.md)
 ---
 
 ## Screenshots
@@ -439,6 +440,11 @@ This project demonstrates practical experience with:
 - Account Lockout Configuration
 - GPO Deployment
 - Group Policy Troubleshooting
+- Windows Event Monitoring
+- Event Viewer
+- Event Log Analysis
+- PowerShell Event Logs
+- Windows Monitoring
 ---
 
 ## Current Project Status
