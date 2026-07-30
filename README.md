@@ -314,6 +314,7 @@ Detailed documentation is available in the following folders:
 - [PowerShell Administration and Automation](windows-services/powershell-administration.md)
 - [Windows Event Logs and Monitoring](windows-services/windows-event-monitoring.md)
 - [Windows Server Hardening](windows-services/windows-server-hardening.md)
+- [Windows Defender and Incident Response](windows-services/incident-response.md)
 ---
 
 ## Screenshots
@@ -451,6 +452,11 @@ This project demonstrates practical experience with:
 - Microsoft Defender
 - Windows Update Verification
 - Windows Service Hardening
+- Windows Incident Response
+- Windows Defender
+- Authentication Investigation
+- Security Event Analysis
+- Evidence Collection
 ---
 
 ## Current Project Status
