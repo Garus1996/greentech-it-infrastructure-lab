@@ -50,6 +50,11 @@ The goal of the project is to demonstrate practical junior IT, infrastructure, s
 - Share Permissions
 - Active Directory Security Groups
 - Group-Based Access Control
+- PowerShell Administration
+- PowerShell Automation
+- Active Directory PowerShell
+- Windows Service Management
+- CSV Report Generation
 
 ### Linux Services
 
@@ -306,6 +311,7 @@ Detailed documentation is available in the following folders:
 - [Active Directory Certificate Services](windows-services/ad-certificate-services.md)
 - [Group Policy Management](windows-services/group-policy-management.md)
 - [Windows File Server and SMB Shares](windows-services/file-server.md)
+- [PowerShell Administration and Automation](windows-services/powershell-administration.md)
 ---
 
 ## Screenshots
