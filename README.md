@@ -313,6 +313,7 @@ Detailed documentation is available in the following folders:
 - [Windows File Server and SMB Shares](windows-services/file-server.md)
 - [PowerShell Administration and Automation](windows-services/powershell-administration.md)
 - [Windows Event Logs and Monitoring](windows-services/windows-event-monitoring.md)
+- [Windows Server Hardening](windows-services/windows-server-hardening.md)
 ---
 
 ## Screenshots
@@ -445,6 +446,11 @@ This project demonstrates practical experience with:
 - Event Log Analysis
 - PowerShell Event Logs
 - Windows Monitoring
+- Windows Server Hardening
+- Windows Firewall Administration
+- Microsoft Defender
+- Windows Update Verification
+- Windows Service Hardening
 ---
 
 ## Current Project Status
