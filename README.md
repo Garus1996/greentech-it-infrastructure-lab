@@ -44,6 +44,12 @@ The goal of the project is to demonstrate practical junior IT, infrastructure, s
 - Group Policy Objects (GPO)
 - Password Policies
 - Account Lockout Policies
+- Windows File Server
+- SMB Shares
+- NTFS Permissions
+- Share Permissions
+- Active Directory Security Groups
+- Group-Based Access Control
 
 ### Linux Services
 
@@ -299,6 +305,7 @@ Detailed documentation is available in the following folders:
 - [Windows Server Update Services](windows-services/wsus-server.md)
 - [Active Directory Certificate Services](windows-services/ad-certificate-services.md)
 - [Group Policy Management](windows-services/group-policy-management.md)
+- [Windows File Server and SMB Shares](windows-services/file-server.md)
 ---
 
 ## Screenshots
